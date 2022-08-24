@@ -1,4 +1,4 @@
-# projeto otimizacao e backtest de_ arteiras de investimento
+# projeto otimizacao e backtest de carteiras de investimento
 
 
 modelo de markovitz
