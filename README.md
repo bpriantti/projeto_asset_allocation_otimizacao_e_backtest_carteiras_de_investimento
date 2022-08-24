@@ -1,4 +1,3 @@
-# projeto Fin. Quant otimizacao e backtest de carteiras de investimento
+# Projeto Asset Allocation Otimizacao e Backtest Carteiras de Investimento (Markowitz’s)
 
 
-modelo de markovitz
