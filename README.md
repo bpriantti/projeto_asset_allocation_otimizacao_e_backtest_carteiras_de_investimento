@@ -101,3 +101,5 @@ __Verificando Quantidade de Ativos Na Carteira:__
 - verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
    <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
+
+__Verificando Correl da Carteira:__
