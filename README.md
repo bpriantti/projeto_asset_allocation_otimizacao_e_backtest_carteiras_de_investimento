@@ -32,26 +32,44 @@ __Frameworks Utilizados:__
 - BackTest: https://pypi.org/project/bt/
 ___
 
-__Project Steps:__
+### __Project Steps:__
 
-1 - import database:
+#### 1 - import database:
 
 > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
 
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "270">
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 420>
+   
+#### wralling database:
+   
+__Removendo Nan's:__
 
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "270">
 
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 420>
+__Removendo Tickers Com Defeito de Market Data:__
 
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_3.png?raw=true" height = 420>
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_3.png?raw=true" height = 420>
 
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_4.png?raw=true" height = 420>
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_4.png?raw=true" height = 420>
 
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 320>
-
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 320>
-
-   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 420>
+Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
+   
+#### Implementando Janelas de Otimizacao e Backtest:
+      
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 320>
+   
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 320>
+   
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 420>
+   
+### Estatisticas Carteiras:  
 
 Stat                | IBOV        |Carteira Pesos Iguais   | Carteira Mínima Volatilidade   | Carteira Máximo Sharpe-Ratio
 ------------------- | ----------  |----------------------- | ------------------------------ | ------------------------------
