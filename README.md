@@ -71,6 +71,16 @@ tickers removidos por defeito de market data:
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
       
+__Verificando Quantidade de Ativos Na Carteira:__   
+   
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
+   <p align="center">
+      <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
+
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
+   <p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
+
 - backtest e comparacao das carteiras otimizadas com o benckmark:
    
 <p align="center">
@@ -91,15 +101,5 @@ Max Drawdown        | -45.58%     |-48.24%                 | -40.26%            
 Calmar Ratio        | 0.12        |0.32                    | 0.34                           | 0.32
    
 ___
-
-__Verificando Quantidade de Ativos Na Carteira:__   
-   
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
-   <p align="center">
-      <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
-
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
-   <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
 
 __Verificando Correl da Carteira:__
