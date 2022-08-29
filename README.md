@@ -38,5 +38,11 @@ __Project Steps:__
 
 > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
 
-   > <img src="https://github.com/bpriantti/projeto_ml_classifier_nlp_noticiciario_bbc_news_class_text/blob/main/images/image_1.PNG?raw=true"  width="400" height = "300">
+   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files/image_1.png?raw=true"  width="800" height = "270">
 
+
+   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files/image_2.png?raw=true">
+
+   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files/image_3.png?raw=true">
+   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files/image_4.png?raw=true">
+   > <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files/image_5.png?raw=true">
