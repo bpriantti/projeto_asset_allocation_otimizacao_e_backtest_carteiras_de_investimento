@@ -38,3 +38,5 @@ __Project Steps:__
 
 > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
 
+   > <img src="https://github.com/bpriantti/projeto_ml_classifier_nlp_noticiciario_bbc_news_class_text/blob/main/images/image_1.PNG?raw=true"  width="400" height = "300">
+
