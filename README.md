@@ -34,3 +34,7 @@ ___
 
 __Project Steps:__
 
+1 - import database:
+
+> Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
+
