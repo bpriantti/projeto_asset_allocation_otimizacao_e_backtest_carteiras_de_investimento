@@ -6,7 +6,7 @@ __Bussines Problem:__
 
 __Objetivo:__
 
-> Desenvolver em python um script que tenha a capacidade de receber a serie historica de ativos listados no indice Ibovespa - IBOV e implemente a otimizacao utilizando a teoria moderna de montagem de portifolios por Markovitz em seguida realizar otimizacoes para minima volatilidade e maximo indice de sharpe, posteriormente o backtest utlizando o metodo de walk-foward e analise de maximo drawdown estimado pelo metodo de monte carlo.
+> Desenvolver uma ferramente que tenha a capacidade de receber a serie historica de ativos listados no indice Ibovespa - IBOV e implemente a otimizacao utilizando a teoria moderna de montagem de portifolios por Markovitz em seguida realizar otimizacoes para minima volatilidade e maximo indice de sharpe, posteriormente o backtest utlizando o metodo de walk-foward e estimacao de maximo drawdown pelo metodo de monte carlo.
 
 __Autor:__  
    - Bruno Priantti.
