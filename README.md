@@ -6,7 +6,7 @@ __Bussines Problem:__
 
 __Objetivo:__
 
-> Desenvolver uma ferramente que tenha a capacidade de receber a serie historica de ativos listados no indice Ibovespa - IBOV e implemente a otimizacao utilizando a teoria moderna de montagem de portifolios por Markovitz em seguida realizar otimizacoes para minima volatilidade e maximo indice de sharpe, posteriormente o backtest utlizando o metodo de walk-foward e estimacao de maximo drawdown pelo metodo de monte carlo.
+> Desenvolver uma ferramenta que tenha a capacidade de receber a série histórica de ativos listados no índice Ibovespa - IBOV e implemente a otimização utilizando a teoria moderna de montagem de portfólios por Markowitz em seguida realizar otimizações para mínima volatilidade e máximo índice de sharpe, posteriormente o backtest utilizando o método de walk-forward.
 
 __Autor:__  
    - Bruno Priantti.
@@ -36,41 +36,52 @@ ___
 
 #### 1 - import database:
 
-> Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
+   > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
 
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 420>
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 400>
    
 #### wralling database:
    
-__Removendo Nan's:__
+- __Removendo Nan's:__
 
+   > removendo nan's da base
+   
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "270">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "220">
 
-__Removendo Tickers Com Defeito de Market Data:__
+- __Removendo Tickers Com Defeito de Market Data:__
 
+   > removendo ticker com dados insuficientes. uaikasmnd
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_3.png?raw=true" height = 420>
-
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_3.png?raw=true" height = 400>
+   
+   > removendo ticker com dados insuficientes. base de dados com dias consecutivos
+   
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_4.png?raw=true" height = 420>
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_4.png?raw=true" height = 400>
 
-Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
+tickers removidos por defeito de market data:
+   > Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
    
 #### Implementando Janelas de Otimizacao e Backtest:
 
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 320>
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
+   
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
    
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 320>
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
+
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
+
+- backtest e comparacao das carteiras otimizadas com o benckmark:
    
 <p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 320>
-   
-<p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 420>
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 400>
    
 ### Estatisticas Carteiras:  
 
