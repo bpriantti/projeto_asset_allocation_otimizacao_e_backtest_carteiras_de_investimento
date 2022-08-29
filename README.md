@@ -103,3 +103,6 @@ Calmar Ratio        | 0.12        |0.32                    | 0.34               
 ___
 
 __Verificando Correl da Carteira:__
+
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_9.png?raw=true" height = 400>
