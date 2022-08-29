@@ -65,19 +65,12 @@ tickers removidos por defeito de market data:
    > Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
    
 #### Implementando Janelas de Otimizacao e Backtest:
+   
+   > treinamento e otimziacao por foward teste
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
-   
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
-   
-<p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
-
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
-<p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
-
+      
 - backtest e comparacao das carteiras otimizadas com o benckmark:
    
 <p align="center">
@@ -96,3 +89,15 @@ Daily Sortino       | 0.56        |1.12                    | 1.23               
 CAGR                | 5.63%       |15.32%                  | 13.88%                         | 16.01%
 Max Drawdown        | -45.58%     |-48.24%                 | -40.26%                        | -50.54%
 Calmar Ratio        | 0.12        |0.32                    | 0.34                           | 0.32
+   
+___
+
+__Verificando Quantidade de Ativos Na Carteira:__   
+   
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
+   <p align="center">
+      <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
+
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
+   <p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
