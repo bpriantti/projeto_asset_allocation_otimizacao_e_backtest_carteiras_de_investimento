@@ -2,7 +2,7 @@
 
 __Bussines Problem:__
 
-> Durante a rotina de asset allocation torna-se importante a composicao de portifolios de ativos, estes que correspodem a unniao de ativos para a diversificacao de risco, no entanto torna-se importante o uso de metodos para a minimizacao de volatilidade ou aumento de retorno, para isso é importante o conceito de otimizacao backtest(teste no passado) de portifolios e tabem estimacao de maximo drawdown utilziando metodo de monte carlo.
+> Durante a rotina de asset allocation torna-se importante a composição de portfólios de ativos, estes que correspondem a união de ativos para a diversificação de risco, no entanto torna-se importante o uso de métodos para a minimização de volatilidade ou aumento de retorno, para isso é importante o conceito de otimização backtest(teste no passado) de portfólios.
 
 __Objetivo:__
 
@@ -36,21 +36,21 @@ ___
 
 #### 1 - import database:
 
-   > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos e seguida realizou-se a conexao em api com os dados da yfinance para obter series historicas dos tickers(ativos) extraidos do site da b3, visualmente verificou-se defeitos de marketdata na base tornan-do necessesario um wralling da base.
+   > Para esse projeto utilizaremos todos os ativos listados no índice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos e seguida realizou-se a conexão em api com os dados da yfinance para obter séries históricas dos tickers(ativos) extraídos do site da b3, visualmente verificou-se defeitos de marketdata na base tornando necessário um wralling da base.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 400>
    
-#### wralling database:
+#### 2 - wralling database:
    
-- __Removendo Nan's:__
+- __removendo nan's:__
 
-   > Inicialmente verificou-se a quantidade de dados faltantes na base de dados, utilizando o metodo de heatmap por nan's e foram removidas as colunas com o dados faltantes, como ilustrado abaixo:
+   > Inicialmente verificou-se a quantidade de dados faltantes na base de dados, utilizando o método de heatmap por nan's e foram removidas as colunas com o dados faltantes, como ilustrado abaixo:
    
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "220">
 
-- __Removendo Tickers Com Defeito de Market Data:__
+- __removendo tickers com defeito de market data:__
 
    > Normalmente visualizamos spikes de preços excessivos no momento em que o provedor de dados atualiza bases que estavam desatualizadas a dias, vamos verificar isso com um boxplot do retorno de todas as ações da base:
    
@@ -65,9 +65,9 @@ ___
 tickers removidos por defeito de market data:
    > Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
    
-#### Implementando Janelas de Otimizacao:
+#### 3 - Implementando Janelas de Otimização:
    
-   > Para o projeto em questao utilizaremos a biblioteca em python chamada - finquant (links abaixo), realizou-se a sepracao dos dados em janelas, realizando a otimizacao para minima volatilidade e depois para maximo sharpe-ratio, armazenando os dados em um dicionario para posterior backtest das carteiras, a biblioteca, optou-se por realizar a otimizacao pela fronteira eficiente da teoria moderna de alocacao de portigolios indealizada por markowitz.
+   > Para o projeto em questão utilizaremos a biblioteca em python chamada - finquant, realizou-se a separação dos dados em janelas, realizando a otimização para mínima volatilidade e depois para máximo sharpe-ratio, armazenando os dados em um dicionário para posterior backtest das carteiras, a biblioteca, optou-se por realizar a otimização pela fronteira eficiente da teoria moderna de alocação de portfólios idealizada por markowitz.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
@@ -89,9 +89,9 @@ Janelas temporal - train-opt-test:
  
 > obs: estabeleceu-se um limite para o peso de um ativo na carteira no valor de __peso_min = 0.001__
 
-__Otimizacao de carteira para minima volatilidade:__
+__otimização de carteira para mínima volatilidade:__
 
-- script calculo composicao de pesos da carteira, minima volatilidade:
+- script cálculo composição de pesos da carteira, mínima volatilidade:
 
          pesos_min_vol = pd.DataFrame(index=database.index, columns=database.columns)
 
@@ -104,14 +104,14 @@ __Otimizacao de carteira para minima volatilidade:__
 
          pesos_min_vol.head()
    
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __mínima volatilidade__:
 
    <p align="center">
       <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
 
-__Otimizacao de carteira para maximo sharp-ratio:__
+__otimização de carteira para máximo sharpe-ratio:__
 
-- script calculo composicao de pesos da carteira, maximo sharp-ratio:
+- script cálculo composição de pesos da carteira, maximo sharpe-ratio:
 
          pesos_max_sr = pd.DataFrame(index=database.index, columns=database.columns)
 
@@ -123,16 +123,19 @@ __Otimizacao de carteira para maximo sharp-ratio:__
 
          pesos_max_sr.head()
 
-- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
+- verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __máximo sharpe-ratio__:
 
    <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
 
-### backtest e comparacao das carteiras otimizadas com o benckmark:
+#### 4 - backtest e comparação das carteiras otimizadas com o benchmark:
 
-> Apos a otimizacoes realizou-se o backtest das carteiras para cada intervalo de tempo utilizando o biblio, backtest, verificando o resultado do backtest e comparando as carteiras com o benchmark idice ibovespa e uma carteira com pesos iguais, analisando a tabela abaixo observamos que abordagem foi vencedora ao longo do periodo de backtest ultrapassando o benchmark e tambem a carteira de pesos iguais, analizando as estatisticas observamos que a carteira de minima volatilidade obteve um drawdown inferior as demais, e a carteira com maximo sharpe-ratio obteve a melhor rentabilidade entre as carterias sendo este o nosso objetivo.
-   
-- Estatisticas Carteiras:  
+> Após as otimizações realizou-se o backtest das carteiras para cada intervalo de tempo utilizando o biblio, backtest, verificando o resultado do backtest e comparando as carteiras com o benchmark índice ibovespa e uma carteira com pesos iguais, analisando a tabela abaixo observamos que abordagem foi vencedora ao longo do período de backtest ultrapassando o benchmark e também a carteira de pesos iguais, analisando as estatísticas observamos que a carteira de mínima volatilidade obteve um drawdown inferior às demais, e a carteira com máximo sharpe-ratio obteve a melhor rentabilidade entre as carteiras sendo este o nosso objetivo.
+
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 400>
+         
+- Estatísticas Carteiras:  
 
 Stat                | IBOV        |Carteira Pesos Iguais   | Carteira Mínima Volatilidade   | Carteira Máximo Sharpe-Ratio
 ------------------- | ----------  |----------------------- | ------------------------------ | ------------------------------
@@ -148,12 +151,11 @@ Calmar Ratio        | 0.12        |0.32                    | 0.34               
    
 ___
 
-<p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 400>
+#### 5 - Verificando Correlação das Carteiras:
 
-__Verificando Correlacao das Carteiras:__
-
-> Podemos observar que as a correlacao das carteiras pelo hearmap abaixo, obviamente as carteiras sao altamente correlacionadas pois derivam do mesmo mercado, poderiamos montar em um trabalho futuro a asset allocation, em carteiras com mercados minimamente descorrelacionados.
+> Podemos observar que as a correlação das carteiras pelo heatmap abaixo, obviamente as carteiras são altamente correlacionadas pois derivam do mesmo mercado, poderíamos montar em um trabalho futuro a asset allocation, em carteiras com mercados minimamente descorrelacionados.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_9.png?raw=true" height = 400>
+
+
