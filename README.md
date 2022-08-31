@@ -36,7 +36,7 @@ ___
 
 #### 1 - import database:
 
-   > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos:
+   > Para esse projeto utilizaremos todos os ativos listados no indice bovespa inicialmente vamos realizar um web-scrapping do site da b3 para extrair a lista de ativos e seguida realizou-se a conexao em api com os dados da yfinance para obter series historicas dos tickers(ativos) extraidos do site da b3, visualmente verificou-se defeitos de marketdata na base tornan-do necessesario um wralling da base.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_2.png?raw=true" height = 400>
@@ -45,18 +45,19 @@ ___
    
 - __Removendo Nan's:__
 
-   > removendo nan's da base
+   > Inicialmente verificou-se a quantidade de dados faltantes na base de dados, utilizando o metodo de heatmap por nan's e foram removidas as colunas com o dados faltantes, como ilustrado abaixo:
    
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_1.png?raw=true"  width="800" height = "220">
 
 - __Removendo Tickers Com Defeito de Market Data:__
 
-   > removendo ticker com dados insuficientes. uaikasmnd
+   > Normalmente visualizamos spikes de preços excessivos no momento em que o provedor de dados atualiza bases que estavam desatualizadas a dias, vamos verificar isso com um boxplot do retorno de todas as ações da base:
+   
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_3.png?raw=true" height = 400>
    
-   > removendo ticker com dados insuficientes. base de dados com dias consecutivos
+   > Verificou-se na base defeitos de dias seguidos, sabemos que por características das ações em momentos de baixa volatilidade os preços tendem a oscilar menos no entanto o defeito de dias seguidos pode ser definido com um range alto de dias por exemplo 20 dias sem atualizações de preço, isso provavelmente pode ser um defeito de market data, portanto desenvolveu-se uma função para verificar essas ocorrências e mostra-se o resultado na figura abaixo:
    
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_4.png?raw=true" height = 400>
@@ -64,9 +65,9 @@ ___
 tickers removidos por defeito de market data:
    > Removidos:  ['ENGI11', 'GGBR4', 'PCAR3', 'SUZB3', 'TAEE11', 'UGPA3']
    
-#### Implementando Janelas de Otimizacao e Backtest:
+#### Implementando Janelas de Otimizacao:
    
-   > treinamento e otimziacao por foward teste
+   > Para o projeto em questao utilizaremos a biblioteca em python chamada - finquant (links abaixo), realizou-se a sepracao dos dados em janelas, realizando a otimizacao para minima volatilidade e depois para maximo sharpe-ratio, armazenando os dados em um dicionario para posterior backtest das carteiras, a biblioteca, optou-se por realizar a otimizacao pela fronteira eficiente da teoria moderna de alocacao de portigolios indealizada por markowitz.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
