@@ -71,23 +71,68 @@ tickers removidos por defeito de market data:
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_8.PNG?raw=true" height = 280e>
-      
-__Verificando Quantidade de Ativos Na Carteira:__   
+    
+         
+Janelas temporal - train-opt-test:  
+   
+         {2011: <finquant.portfolio.Portfolio at 0x7f206b6e3690>,
+          2012: <finquant.portfolio.Portfolio at 0x7f206b6e34d0>,
+          2013: <finquant.portfolio.Portfolio at 0x7f206b74ad50>,
+          2014: <finquant.portfolio.Portfolio at 0x7f206b6e33d0>,
+          2015: <finquant.portfolio.Portfolio at 0x7f20683e1650>,
+          2016: <finquant.portfolio.Portfolio at 0x7f2068c57c10>,
+          2017: <finquant.portfolio.Portfolio at 0x7f206879ffd0>,
+          2018: <finquant.portfolio.Portfolio at 0x7f206b74ac90>,
+          2019: <finquant.portfolio.Portfolio at 0x7f20683ea8d0>,
+          2020: <finquant.portfolio.Portfolio at 0x7f2068681110>,
+          2021: <finquant.portfolio.Portfolio at 0x7f2068579710>}
+ 
+> obs: estabeleceu-se um limite para o peso de um ativo na carteira no valor de __peso_min = 0.001__
+
+__Otimizacao de carteira para minima volatilidade:__
+
+- script calculo composicao de pesos da carteira, minima volatilidade:
+
+         pesos_min_vol = pd.DataFrame(index=database.index, columns=database.columns)
+
+         for ano in optbase.keys():
+             pesos_min_vol.loc[pesos_min_vol.index.year == (ano+1),:] =  optbase[ano].ef_minimum_volatility().T.values
+
+         #---
+         pesos_min_vol.dropna(inplace=True)
+         pesos_min_vol.where(pesos_min_vol > peso_min, 0, inplace=True)
+
+         pesos_min_vol.head()
    
 - verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __minima volatilidade__:
+
    <p align="center">
       <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_5.png?raw=true" height = 300>
 
+__Otimizacao de carteira para maximo sharp-ratio:__
+
+- script calculo composicao de pesos da carteira, maximo sharp-ratio:
+
+         pesos_max_sr = pd.DataFrame(index=database.index, columns=database.columns)
+
+         for ano in optbase.keys():
+             pesos_max_sr.loc[pesos_max_sr.index.year == (ano+1),:] = optbase[ano].ef_maximum_sharpe_ratio().T.values
+
+         pesos_max_sr.dropna(inplace=True)
+         pesos_max_sr.where(pesos_max_sr > peso_min, 0, inplace=True)
+
+         pesos_max_sr.head()
+
 - verificando quantidade de ativos ao decorrer do tempo de teste a carteira de __maximo sharp-ratio__:
+
    <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_7.png?raw=true" height = 300>
 
-- backtest e comparacao das carteiras otimizadas com o benckmark:
+### backtest e comparacao das carteiras otimizadas com o benckmark:
+
+> Apos a otimizacoes realizou-se o backtest das carteiras para cada intervalo de tempo utilizando o biblio, backtest, verificando o resultado do backtest e comparando as carteiras com o benchmark idice ibovespa e uma carteira com pesos iguais, analisando a tabela abaixo observamos que abordagem foi vencedora ao longo do periodo de backtest ultrapassando o benchmark e tambem a carteira de pesos iguais, analizando as estatisticas observamos que a carteira de minima volatilidade obteve um drawdown inferior as demais, e a carteira com maximo sharpe-ratio obteve a melhor rentabilidade entre as carterias sendo este o nosso objetivo.
    
-<p align="center">
-   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 400>
-   
-### Estatisticas Carteiras:  
+- Estatisticas Carteiras:  
 
 Stat                | IBOV        |Carteira Pesos Iguais   | Carteira Mínima Volatilidade   | Carteira Máximo Sharpe-Ratio
 ------------------- | ----------  |----------------------- | ------------------------------ | ------------------------------
@@ -103,7 +148,12 @@ Calmar Ratio        | 0.12        |0.32                    | 0.34               
    
 ___
 
-__Verificando Correl da Carteira:__
+<p align="center">
+   <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_6.png?raw=true" height = 400>
+
+__Verificando Correlacao das Carteiras:__
+
+> Podemos observar que as a correlacao das carteiras pelo hearmap abaixo, obviamente as carteiras sao altamente correlacionadas pois derivam do mesmo mercado, poderiamos montar em um trabalho futuro a asset allocation, em carteiras com mercados minimamente descorrelacionados.
 
 <p align="center">
    <img src="https://github.com/bpriantti/projeto_asset_allocation_otimizacao_e_backtest_carteiras_de_investimento/blob/main/files_/image_9.png?raw=true" height = 400>
